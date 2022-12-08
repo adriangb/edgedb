@@ -27,14 +27,15 @@ For example, consider the following declaration:
         annotation title := 'Activity status';
         annotation description := 'All possible user activities';
 
+        required property full_name -> str;
         required property name -> str {
-            constraint exclusive
+            annotation deprecated := 'Use full_name instead.';
         }
     }
 
-The ``deprecated`` annotation is used to mark deprecated items (e.g.
-:eql:func:`str_rpad`) and to provide some information such as what
-should be used instead.
+The ``deprecated`` annotation is used to mark deprecated items and to provide some information such as what
+should be used instead. In this case the annotation is suggesting that the `full_name` property replaces
+the `name` property.
 
 
 User-defined annotations
